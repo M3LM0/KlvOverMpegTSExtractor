@@ -1,0 +1,24 @@
+---
+description: Commits fréquents, traçabilité et gestion des versions
+alwaysApply: true
+---
+
+# Règles de commit et sécurité du code
+
+- Fais des **commits petits et fréquents**.  
+- Commits dès qu’un point stable est atteint, même imparfait.  
+- Format : `<type>(<scope>): <description>`  
+  Exemples :  
+  - feat(models): ajout dataclass User  
+  - fix(utils): correction parsing CSV  
+  - refactor(services): simplification logique  
+- Explique le *quoi* et le *pourquoi*, jamais le *comment*.  
+- Si une génération IA dégrade le code :  
+  - **Revert immédiatement** au dernier commit stable.  
+  - Supprime le composer concerné.  
+  - Repars sur un nouveau contexte propre.  
+
+# Bonnes pratiques Git
+- Aucun commit “update”, “fix2” ou “wip”.  
+- Un commit = une idée, un changement logique unique.  
+- Toujours valider les tests avant le commit.

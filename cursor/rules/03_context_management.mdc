@@ -1,0 +1,20 @@
+---
+description: Gestion des contextes et des composers dans Cursor
+alwaysApply: true
+globs:
+  - "**/*.py"
+---
+
+# Gestion des contextes Cursor
+
+- Un composer = une seule fonctionnalité ou bugfix.  
+- Ne mélange jamais discussion et génération de code :  
+  - Chat → réflexion, cadrage, validation du plan.  
+  - Composer → écriture du code final uniquement.  
+- Si le composer devient confus, trop chargé ou incohérent :  
+  - **Revert** au dernier commit stable.  
+  - Crée un **nouveau composer** propre.  
+  - Repars de zéro avec un contexte minimal.  
+- Ne charge pas plus de 3 à 5 fichiers dans un composer.  
+  Trop de contexte réduit la précision de l’IA.  
+- Redémarre régulièrement un composer pour garder l’IA “fraîche”.

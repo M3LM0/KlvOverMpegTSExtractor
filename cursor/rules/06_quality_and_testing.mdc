@@ -1,0 +1,29 @@
+---
+description: Bonnes pratiques de qualité, modélisation et tests Python
+alwaysApply: true
+globs:
+  - "**/*.py"
+  - "tests/**/*.py"
+---
+
+# Qualité et modélisation avant code
+
+- **Toujours commencer par la modélisation.**  
+  - Crée les dataclasses ou modèles Pydantic avant toute logique métier.  
+  - Valide les types et relations avant d’écrire du code exécutif.  
+- Respect strict du PEP8 (lisibilité, cohérence) et du PEP484 (typage).  
+- Utilise `logging` plutôt que `print` pour toute sortie technique.  
+- Découpe les fonctions longues en sous-fonctions testables.  
+- Aucun code “...” ou placeholder ne doit être commité.  
+
+# Tests
+- Écris un test minimal (`pytest`) dès qu’une fonctionnalité est créée.  
+- Nom des fichiers : `tests/test_<module>.py`  
+- Les tests doivent passer avant commit.  
+- Vérifie la cohérence des types et des imports avant validation.  
+
+# Validation IA
+- Avant d’approuver une génération IA :
+  - Vérifie la cohérence typée.  
+  - Assure-toi que le code s’intègre sans casser d’autres modules.  
+  - Refuse tout code non aligné sur le pattern projet.

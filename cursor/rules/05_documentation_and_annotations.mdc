@@ -1,0 +1,30 @@
+---
+description: Documentation et annotations IA dans Cursor
+alwaysApply: true
+globs:
+  - "**/*.py"
+---
+
+# Documentation et annotations
+
+- Chaque module commence par une docstring triple-quote :
+  """
+  Module : utils/file_utils.py  
+  Description : Fonctions de manipulation de fichiers.  
+  Auteur : Mounir Elmaddaghri  
+  Date : 2025-11-01  
+  """
+- Chaque fonction critique documente :
+  - Objectif  
+  - Paramètres  
+  - Valeur de retour  
+  - Exceptions levées  
+
+# Annotations Cursor
+- Utilise `@doc <URL>` pour lier la documentation officielle.  
+- Utilise `@example <path>` pour montrer un fichier de référence.  
+  Exemple :  
+  @doc https://docs.python.org/3/library/asyncio.html  
+  @example services/signal_analyzer.py  
+- Maintiens un fichier `architecture.md` décrivant les patterns et décisions techniques.  
+- Mets-le à jour à chaque ajout de fonctionnalité majeure.

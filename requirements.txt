@@ -1,0 +1,10 @@
+# KLV Over MPEG-TS Extractor - Dépendances
+# Python 3.9+
+
+# Interface graphique
+PySide6>=6.5.0
+
+# Pour les tests (optionnel mais recommandé)
+pytest>=7.0.0
+pytest-qt>=4.2.0
+

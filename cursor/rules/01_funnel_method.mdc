@@ -1,0 +1,29 @@
+---
+description: Méthode de l’entonnoir – guider la génération IA en 5 étapes
+alwaysApply: true
+globs:
+  - "**/*.py"
+---
+
+# Technique de l'entonnoir (5 étapes)
+
+1️⃣ **Contexte fonctionnel**  
+   - Décris ce que le module doit accomplir et pourquoi.  
+   - Fournis du contexte large, mais demande un code précis et limité à la tâche.  
+
+2️⃣ **Contexte technique**  
+   - Indique les technologies, versions Python et bibliothèques utilisées.  
+   - Mentionne les contraintes d’environnement ou de compatibilité.  
+
+3️⃣ **Plan d’exécution**  
+   - L’IA doit proposer un plan de développement (fonctions, classes, fichiers).  
+   - Attends validation avant génération de code.  
+
+4️⃣ **Modélisation**  
+   - Commence toujours par la modélisation (dataclasses, types, Pydantic).  
+   - Une bonne modélisation rend les couches suivantes cohérentes.  
+
+5️⃣ **Développement modulaire**  
+   - Implémente uniquement la fonctionnalité validée.  
+   - Structure le code dans les bons dossiers (`models/`, `services/`, `utils/`, `tests/`).  
+   - Crée un test minimal avec `pytest` avant le commit.

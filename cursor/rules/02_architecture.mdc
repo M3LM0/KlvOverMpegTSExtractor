@@ -1,0 +1,48 @@
+---
+description: Architecture standardisée pour projets Python modulaires
+alwaysApply: true
+globs:
+  - "models/**/*.py"
+  - "services/**/*.py"
+  - "utils/**/*.py"
+  - "tests/**/*.py"
+---
+
+# Architecture et organisation des projets Python
+
+## Structure à respecter
+project/
+├── main.py
+├── models/        # entités de données, dataclasses, Pydantic models
+├── services/      # logique métier
+├── utils/         # fonctions génériques
+├── tests/         # tests unitaires
+└── resources/     # templates, données externes
+
+## Règles d’implémentation
+- Aucun code métier dans `main.py`.  
+- Chaque service doit posséder :
+  - Une classe principale (`NomService`)  
+  - Un module de test (`tests/test_<service>.py`)  
+- Les modèles (`models/`) contiennent uniquement les structures et validations.  
+- Les services utilisent les modèles sans dépendre directement des fichiers ou de l’IHM.  
+- Favoriser la **composition** > héritage et l’**injection de dépendances** > imports croisés.  
+- Typage explicite (PEP484) et docstrings conformes (PEP257).  
+- Si une architecture existe déjà, **analyse-la et calque-toi sur les patterns, noms et conventions**.  
+- Les modules doivent être autonomes et testables indépendamment.  
+- Si un fichier dépasse 300 lignes ou plusieurs responsabilités, découpe-le.  
+
+## Bonnes pratiques
+- Respect du PEP8 (lisibilité, cohérence, nommage).  
+- Toujours un `__init__.py` explicite dans chaque package.  
+- Noms :
+  - Classes → PascalCase  
+  - Fonctions / variables → snake_case  
+  - Modules → snake_case  
+- Évite les dépendances inutiles.  
+- Ajoute une docstring en tête de fichier :
+  """
+  Module : services/signal_analyzer.py  
+  Rôle : Analyse les signaux et détecte les anomalies.  
+  Auteur : Mounir Elmaddaghri  
+  """

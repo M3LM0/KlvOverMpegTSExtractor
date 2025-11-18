@@ -7,8 +7,13 @@ from klvreconstructor import reconstruct_klv_packets
 def extract_klv(path):
     with open(path, 'rb') as stream:
         for packet in klvdata.StreamParser(stream):
-            packet.structure()
-            packet.validate()
+            if hasattr(packet, 'structure'):
+                packet.structure()
+            else:
+                print(f'Unknown packet type: {type(packet).__name__}')
+                print(f'Packet info: {packet}')
+            if hasattr(packet, 'validate'):
+                packet.validate()
 
 
 def extract_mpegts(path):
@@ -25,8 +30,15 @@ def extract_mpegts(path):
             for packet in klvdata.StreamParser(klv_data):
                 print(f'Packet pts: {pts_per_packet[index]}')
                 index += 1
-                packet.structure()
-                packet.validate()
+                if hasattr(packet, 'structure'):
+                    packet.structure()
+                else:
+                    print(f'Unknown packet type: {type(packet).__name__}')
+                    print(f'Packet info: {packet}')
+                if hasattr(packet, 'validate'):
+                    packet.validate()
+        else:
+            print(f'No KLV metadata found in stream 0x{key:X}')
 
 
 if __name__ == '__main__':

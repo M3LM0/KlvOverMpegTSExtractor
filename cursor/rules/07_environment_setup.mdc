@@ -1,0 +1,54 @@
+---
+description: Initialisation et gestion automatique de l’environnement virtuel Python
+alwaysApply: true
+globs:
+  - "**/*.py"
+---
+
+# Gestion de l’environnement virtuel Python
+
+## Objectif
+Toujours travailler dans un environnement isolé et contrôlé.  
+L’IA doit vérifier ou créer un venv local avant d’exécuter ou d’installer des dépendances.
+
+## Étapes automatiques à suivre
+
+1️⃣ **Détection**
+   - Si un environnement virtuel (`.venv/` ou `venv/`) existe déjà, l’activer :
+     - macOS / Linux → `source .venv/bin/activate`
+     - Windows → `.\.venv\Scripts\activate`
+
+2️⃣ **Création**
+   - S’il n’existe pas, proposer de créer un environnement virtuel :
+     ```
+     python -m venv .venv
+     ```
+   - Une fois créé, l’activer immédiatement.
+
+3️⃣ **Choix de la version Python**
+   - Si plusieurs versions Python sont disponibles sur la machine, proposer une sélection :  
+     Exemple :
+     ```
+     python3.9 -m venv .venv
+     python3.11 -m venv .venv
+     ```
+   - L’utilisateur choisit la version à utiliser pour le projet (par ex. via pyenv ou homebrew).
+
+4️⃣ **Validation**
+   - Afficher la version de Python active :
+     ```
+     python --version
+     ```
+   - Créer un fichier `.python-version` à la racine avec le numéro exact (ex: `3.11.7`).
+
+5️⃣ **Installation de base**
+   - Installer automatiquement les dépendances minimales :
+     ```
+     pip install --upgrade pip setuptools wheel
+     ```
+   - Si un fichier `requirements.txt` existe → `pip install -r requirements.txt`
+
+## Directives IA
+- Toujours exécuter ou générer du code dans le contexte virtuel actif.
+- Ne jamais installer de dépendance globale sur le système.
+- Si la version de Python n’est pas compatible avec le projet, proposer la commande alternative :

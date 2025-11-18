@@ -1,0 +1,15 @@
+---
+description: Règles fondamentales pour un workflow IA stable et productif
+alwaysApply: true
+globs:
+  - "**/*.py"
+---
+
+# Directives fondamentales
+
+- Avant toute génération de code, clarifie dans le chat l’objectif fonctionnel du module ou de la feature.  
+- Si le but n’est pas clair pour toi, il ne le sera pas pour l’IA — rédige un petit draft personnel avant d’ouvrir Cursor.  
+- Ne génère jamais de code sans plan d’exécution validé.  
+- Utilise le chat pour la stratégie et la réflexion, le composer pour le développement effectif.  
+- Favorise des prompts courts et ciblés ; ne charge pas inutilement tout le projet.  
+- Rappelle-toi : le workflow IA doit être **guidé par toi**, jamais subi.
